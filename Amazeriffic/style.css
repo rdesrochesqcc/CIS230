@@ -1,119 +1,136 @@
-body 
-{
-	background: #f9e933;
-	width:95%;
-	max-width: 1400px;
-	min-width: 320px;
-	margin: 0 auto;
+body {
+  background: #f9e933;
+  font-family: 'Droid Sans', sans-serif;
 }
 
-header, 
-main, 
-footer 
-{
-	width: 100%;
-	padding: 1em 1em 0 1em;
-	display: flex; 
-	flex-flow: row wrap;
+header, main, footer {
+  min-width: 855px;
 }
 
-
-header, 
-main {
-	background: white;
+header .container, main .container, footer .container {
+  max-width: 855px;
+  margin: auto;
 }
 
-.twoThirds {
-	flex: 1 2 475px;
+header {
+  padding: 25px 0 25px 0;
+  background: white;
+  overflow: auto;
+  border-bottom: 1px solid #ddd;
 }
 
-.oneThird {
-	flex: 1 1 238px;
-}
-
-.center {
-	text-align: center;
-}
-
-main img {
-	margin: 0 auto;
-	display: block;
-	max-width: 100%;
-}
-
+/* MAIN LOGO */
 h1 {
-	font-size: 2em;
-	font-weight: bold;
-	line-height: 2em;
+  font-family: 'Ubuntu', sans-serif;
+  font-style: italic;
+  font-size: 3em;
+  color: #b33;
+  float: left;
+  width: 570px;
 }
 
-h2 {
-	font-size: 1.8em;
-	font-weight: bold;
-	line-height: 1.8em;
-}
-
-h3 {
-	font-size: 1.6em;
-	font-weight: bold;
-	line-height: 1.6em;
-}
-
-h4 {
-	font-size: 1.4em;
-	font-weight: bold;
-	line-height: 1.4em;
-}
-
+/* FOOTER HEADINGS */
 h5 {
-	font-size: 1.2em;
-	font-weight: bold;
-	line-height: 1.2em;
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 1.25em;
+    margin-bottom: 20px;
 }
 
-p {
-	font-size: 1em;
-	padding: 1em 0;
+header nav {
+  float: right;
+  width: 285px;
 }
 
-ul {
-	list-style: disc;
-	padding: 1em;
-	margin-left: 1em;
+a {
+  color: #f00;
+  text-decoration: none;
+  font-weight: bold;
 }
 
-a
-{
-	padding: 0.2em;
-	text-decoration: none;
-	color: #ff0000;
+main {
+    background: #fff;
+    border-radius: 0 5px 5px 5px;;
+    padding: 40px;
 }
 
-a:hover {
-	text-decoration: underline;
-	color: #0000FF;
+.tabs a span {
+    border-radius: 5px 5px 0 0;
+    display: inline-block;
+    width: 100px;
+    margin-right: 10px;
+    text-align: center;
+    background: #ddd;
+    padding: 5px;
+}
+
+.tabs a .active {
+    background: #eee;
+}
+
+main .content {
+    padding: 30px 10px 30px 10px;
+    border-radius: 0 5px 5px 5px;
+    background: #eee;
+}
+
+main .content li {
+    border-radius: 5px;
+    padding: 3px;
+    background: #eff;
+    margin: 0 0 10px 0;
+}
+
+main .content button {
+  font-weight: bold;
+  padding: 0 3px 0 3px;
+  border-radius: 5px;
+  background: #ccc;
+  cursor: pointer;
+  margin-left: 5px;
+  font-size: 1.3em;
+}
+
+
+main .content p {
+    background: yellow;
+}
+
+main .content input {
+    font-size: 1.5em;
 }
 
 footer {
-	display: none;
+    border-top: 1px solid #ddd;
+    padding: 40px 0 20px 0;
 }
 
+footer .contact {
+  float: left;
+  width: 570px;    
+}
 
-@media screen and ( min-width: 720px ) {
+footer .contact p:nth-child(2) {
+  color: #b33;
+  font-style: italic;
+}
 
-	footer {
-		display: flex;
-	}
+footer .sitemap {
+    float: right;
+    width: 285px;
+}
 
-	footer ul {
-		list-style: none;
-		margin: 0;
-		padding-left: 0;
-	}
+footer ul {
+    width: 230px;
+}
 
-	footer ul li {
-		padding: 0.2em;
-	}
+li {
+    list-style: none;
+}
 
+footer .sitemap .left {
+    float: left;
+}
 
+footer .sitemap .right {
+    float: right;
 }

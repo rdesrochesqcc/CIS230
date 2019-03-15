@@ -9,9 +9,15 @@ $( function() {
 		if ( commentInput.val() !== "" ) 
 		{
 			$new_comment = 
-				$("<p>").text( commentInput.val() );
+				$("<p>").html( commentInput.val() + "<button class='delete'>Delete</button>");
+			$new_comment.hide();
 			$(".comments").append( $new_comment );
+			$new_comment.fadeIn();
 			commentInput.val( "" );
+			
+			$( ".delete").on("click", function(event) {
+				event.target.parentElement.remove();
+			});
 		}
 	} // end processCommentInput()
 	
@@ -27,5 +33,7 @@ $( function() {
 	{
 		processCommentInput();
 	}); // end on click 
+	
+
 	
 });
