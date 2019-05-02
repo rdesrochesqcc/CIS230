@@ -1,5 +1,7 @@
 var ntwitter = require("ntwitter"),
     credentials = require("./credentials.json"),
+    redis = require("redis"),
+    redisClient, 
     twitter,
     counts = {};
 
@@ -8,15 +10,27 @@ var ntwitter = require("ntwitter"),
 
 twitter =  ntwitter(credentials);
 
-twitter.stream( "statuses/filter", 
+redisClient = redis.createClient();
+
+redisClient.get( "awesome", function( err, awesomeCount ) {
+    if ( err != null )
+    {
+        console.warn("Error: " + err );
+        return;
+    }
+
+    counts.awesome = parseInt( awesomeCount, 10) || 0;
+    twitter.stream( "statuses/filter", 
                 { "track": ["awesome", "cool", "rad", "gnarly", "groovy"] },
                 function(stream) {
                     stream.on( "data", function(tweet) {
                         if ( tweet.text.indexOf("awesome") > -1 ) {
-                            counts.awesome++;
+                            redisClient.incr("awesome");
+                            counts.awesome = counts.awesome + 1;
                         }
                     });
                 } );     
+});
 
 setInterval ( function() {
     console.log( "Awesome: " + counts.awesome);
